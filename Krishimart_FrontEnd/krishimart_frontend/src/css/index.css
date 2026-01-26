@@ -1,0 +1,29 @@
+body {
+  font-family: 'Georama', sans-serif;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  position: relative;
+  min-height: 100vh;
+}
+
+.marquee {
+  background: #111;
+  color: white;
+  padding: 10px 0;
+}
+
+.strip p {
+  display: inline-block;
+  margin: 0 30px;
+  font-weight: 500;
+}
+
+.hover-card:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
