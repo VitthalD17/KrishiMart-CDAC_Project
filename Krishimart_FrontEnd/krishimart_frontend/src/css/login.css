@@ -1,0 +1,28 @@
+/* Background */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #e9e3e3;
+}
+
+/* Card */
+.login-card {
+  background: #d0f2cc;
+  padding: 60px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 2px;
+  box-shadow: 0 10px 25px rgba(0.6, 0.6, 0.6, 0.6);
+}
+
+/* Links */
+.login-card a {
+  text-decoration: none;
+  color: #291ea6;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}

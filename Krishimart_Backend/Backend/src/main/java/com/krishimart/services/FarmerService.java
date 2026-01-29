@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.krishimart.dto.ApiResp;
 import com.krishimart.dto.ProdDTO;
-import com.krishimart.dto.UserDTO;
-import com.krishimart.entities.Products;
+import com.krishimart.entities.Payments;
 
 public interface FarmerService {
 	
@@ -18,5 +17,7 @@ public interface FarmerService {
 	ApiResp updateMyProducts(Long productId, ProdDTO dto);
 
 	ApiResp deleteMyProducts(Long productId);
+
+	List<Payments> getMyPayments(Long farmerId);
 
 }

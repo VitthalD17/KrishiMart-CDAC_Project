@@ -1,0 +1,28 @@
+.addproduct-container {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 40px;
+  background: #e9e3e3;
+}
+
+.addproduct-card {
+  background: #d0f2cc;
+  width: 100%;
+  max-width: 480px;
+  padding: 30px;
+  border-radius: 2px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.addproduct-card h3 {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.addproduct-card label {
+  color: #000;
+  font-weight: 500;
+}

@@ -12,9 +12,11 @@ import com.krishimart.customExcp.UserRelatedException;
 import com.krishimart.dto.ApiResp;
 import com.krishimart.dto.ProdDTO;
 import com.krishimart.dto.UserDTO;
+import com.krishimart.entities.Payments;
 import com.krishimart.entities.Products;
 import com.krishimart.entities.Role;
 import com.krishimart.entities.Users;
+import com.krishimart.repository.PaymentRepository;
 import com.krishimart.repository.ProductRepository;
 import com.krishimart.repository.UserRepository;
 
@@ -30,42 +32,7 @@ public class FarmerServiceImpl implements FarmerService {
 	final private ModelMapper mapper;
 	final private ProductRepository productRepository;
 	final private UserRepository userRepository;
-	
-//	@Override
-//	public ApiResp FarmerSignUp(UserDTO dto) {
-////		Users userEntity= userRepository.findByEmail(dto.getEmail())
-////				.orElseThrow(()->new UserRelatedException("The User Already Exists"));
-//		if(userRepository.existsByEmail(dto.getEmail())) {
-//			throw new UserRelatedException("The User Already Exists");
-//		}
-//	 Users userEntity=mapper.map(dto,Users.class);
-//		userEntity.setRole(Role.FARMER);
-//		userRepository.save(userEntity);
-//		return new ApiResp("The Farmer SignUp SuccessFully","Success");
-//	}
-	
-//	private PasswordEncoder passwordEncoder; // SecurityConfig mein Bean honi chahiye
-//
-//	@Override
-//	public ApiResp FarmerSignUp(UserDTO dto) {
-//	    // 1. Check if user exists
-//	    if (userRepository.existsByEmail(dto.getEmail())) {
-//	        throw new UserRelatedException("User already exists!");
-//	    }
-//
-//	    // 2. Map DTO to Entity
-//	    Users userEntity = mapper.map(dto, Users.class);
-//	    userEntity.setRole(Role.FARMER);
-//	    // 3. ENCODE THE PASSWORD (SABSE ZAROORI)
-//	    // Ye plain text password ko "$2a$10..." jaise hash mein badal dega
-//	    userEntity.setPassword(passwordEncoder.encode(dto.getPassword()));
-//
-//	    // 4. Save to DB
-//	    userRepository.save(userEntity);
-//	    return new ApiResp("SignUp Success", "Success");
-//	}
-	
-	
+	final private PaymentRepository paymentRepository;
 	
 	@Override
 	public ApiResp AddProduct(ProdDTO dto,Long fid) {
@@ -104,6 +71,12 @@ public class FarmerServiceImpl implements FarmerService {
 				
 				productRepository.deleteById(productId);
 		return new ApiResp("The Product Removed SuccessFully!!", "Removed");
+	}
+
+	@Override
+	public List<Payments> getMyPayments(Long farmerId) {
+		List<Payments> payment=paymentRepository.findByFarmerUserId(farmerId);
+		return payment;
 	}
 
 }

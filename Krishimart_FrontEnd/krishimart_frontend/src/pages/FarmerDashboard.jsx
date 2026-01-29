@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FarmerService from "../services/FarmerService";
 import { Link } from "react-router-dom";
+import FarmerNavbar from "../components/FarmerNavbar";
 
 export default function FarmerDashboard() {
 
@@ -29,13 +30,9 @@ export default function FarmerDashboard() {
     };
 
     return (
+        <>
+        <FarmerNavbar/>
         <div className="container mt-4">
-
-            <img src="/images/krishi2.jpg" alt="Logo" width="120" />
-            <hr></hr>
-            <Link to="/form">
-      <button type='button' name="add" id='add' className='btn btn-primary'>AddProduct</button>
-      </Link>
             <table className="table table-striped table-bordered">
                 <thead className="table-dark">
                     <tr>
@@ -65,13 +62,13 @@ export default function FarmerDashboard() {
                             <td>{p.pdescription}</td>
                             <td>
                              <Link to={`/edit/${p.productId}`} state={{proddata:p}}>
-                             <button type='button' name='edit' id='edit' className='btn btn-info'>edit</button>&nbsp;&nbsp;&nbsp;
+                             <button type='button' name='edit' id='edit' className='btn btn-info btn-sm px-3'>✏️ Edit</button>
                              </Link>
                                 <button
-                                    className="btn btn-danger btn-sm"
+                                    className="btn btn-danger btn-sm px-3"
                                     onClick={() => deleteProduct(p.productId)}
                                 >
-                                    Delete
+                                   🗑️ Delete
                                 </button>&nbsp;&nbsp;&nbsp;
                                 
                             </td>
@@ -81,5 +78,6 @@ export default function FarmerDashboard() {
             </table>
 
         </div>
+        </>
     );
 }

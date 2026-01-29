@@ -15,6 +15,7 @@ import com.krishimart.dto.OrderItemReqDTO;
 import com.krishimart.dto.OrderItemRespDTO;
 import com.krishimart.dto.OrderReqDTO;
 import com.krishimart.dto.OrderRespDTO;
+import com.krishimart.dto.PayResp;
 import com.krishimart.dto.UserDTO;
 import com.krishimart.entities.OrderItems;
 import com.krishimart.entities.Orders;
@@ -42,22 +43,10 @@ public class CustomerServiceImpl implements CustomerService {
 	final private UserRepository userRepository;
 	final private ModelMapper mapper;
 	final private PasswordEncoder passwordEncoder;
-//	
-//	@Override
-//	public ApiResp CustomerSignUp(UserDTO dto) {
-//		
-//		if(userRepository.existsByEmail(dto.getEmail())) {
-//			throw new UserRelatedException("The User Already Exists");
-//		}
-//		Users userEntity=mapper.map(dto,Users.class);
-//		userEntity.setRole(Role.CUSTOMER);
-//		userEntity.setPassword(passwordEncoder.encode(dto.getPassword()));
-//		userRepository.save(userEntity);
-//		return new ApiResp("The Customer SignUp SuccessFully","Success");
-//	}
+
 	
 	@Override
-	public ApiResp placeMyOrders(@Valid OrderReqDTO dto) {
+	public PayResp placeMyOrders(@Valid OrderReqDTO dto) {
 		Users customer=userRepository.findById(dto.getCustomerId())
 				.orElseThrow(()->new UserRelatedException("The Customer not Found!!"));
 		Orders order=new Orders();
@@ -78,12 +67,19 @@ public class CustomerServiceImpl implements CustomerService {
 			double price=product.getPrice();
 			int qty=items.getQty();
 			double subTotal=price*qty;
-			
+			if (qty > product.getQty()) {
+	            throw new ProductException(
+	                "Insufficient stock for product: " + product.getPname()
+	            );
+	        }
 			OrderItems ordersItem=new OrderItems();
 			ordersItem.setOrder(order);
 			ordersItem.setProduct(product);
 			ordersItem.setPrice(price);
 			ordersItem.setQuantity(qty);
+			
+			product.setQty(product.getQty() - qty);
+	        productRepository.save(product);
 			
 			total=total+subTotal;
 			orderItemRepository.save(ordersItem);
@@ -92,7 +88,7 @@ public class CustomerServiceImpl implements CustomerService {
 		order.setTotal_amount(total);
 		orderRepository.save(order);
 		
-		return new ApiResp("The order Placed successFully!!", "Placed");
+		return new PayResp("The order Placed successFully!!", "Placed",order.getOrderId());
 	}
 	@Override
 	public List<OrderRespDTO> getCustomersOrder(Long customerId) {

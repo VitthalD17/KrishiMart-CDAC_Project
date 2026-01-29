@@ -23,6 +23,19 @@ class FarmerService {
         });
     }
 
+    getPaymentsByFarmer(farmerId) {
+  const token = localStorage.getItem("token");
+  return axios.get(
+    `${BASE_URL}/payments/${farmerId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+  );
+}
+
+
     deleteProduct(productId) {
         const token = localStorage.getItem("token");
         return axios.delete(`${BASE_URL}/products/${productId}`,{
@@ -31,6 +44,7 @@ class FarmerService {
       }
         });
     }
+
 
     updateProduct(product) {
         const token = localStorage.getItem("token");

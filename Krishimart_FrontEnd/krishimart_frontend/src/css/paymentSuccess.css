@@ -1,0 +1,57 @@
+.success-page {
+  background: #f4f6f8;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-container {
+  background: #ffffff;
+  width: 420px;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.check-icon {
+  font-size: 60px;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.success-container h1 {
+  color: #2e7d32;
+}
+
+.success-container p {
+  color: #555;
+}
+
+.order-box {
+  background: #f1f8e9;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  color: rgb(99, 218, 241);
+}
+
+.home-btn { background: #1976d2; 
+  
+}
+.orders-btn { background: #1976d2; }

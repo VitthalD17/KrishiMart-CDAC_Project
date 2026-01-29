@@ -6,6 +6,13 @@ import CustomerDashboard from './pages/CustomerDashboard';
 import FarmerDashboard from "./pages/FarmerDashboard";
 import EditProduct from "./pages/EditProduct";
 import AddProduct from "./pages/AddProduct";
+import MyOrder from "./pages/MyOrder";
+import OrderDetails from "./pages/OrderDetails";
+import Payment from "./pages/Payment";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import FarmerPayments from "./pages/FarmerPayments";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -18,6 +25,13 @@ function App() {
         <Route path="/farmer/dashboard" element={<FarmerDashboard/>}/>
         <Route path="/edit/:productId" element={<EditProduct/>}/>
         <Route path="/form" element={<AddProduct/>}/>
+        <Route path="/orders" element={<MyOrder/>}/>
+        <Route path="/orders/:orderId" element={< OrderDetails/>}/>
+        <Route path="/payments/:orderId" element={<Payment/>} />
+        <Route path="/success" element={<PaymentSuccess/>}/>
+        <Route path="/payments" element={< FarmerPayments/>} />
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={<Contact/>}/>
       </Routes>
     </BrowserRouter>
   );

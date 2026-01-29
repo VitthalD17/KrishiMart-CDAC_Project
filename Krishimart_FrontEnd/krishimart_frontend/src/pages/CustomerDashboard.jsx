@@ -1,49 +1,100 @@
 import React, { useEffect, useState } from "react";
 import customerService from "../services/CustomerService";
 import CustomerNavbar from "../components/CustomerNavbar";
+import { useNavigate } from "react-router-dom";
 
 export default function CustomerDashboard() {
   const [products, setProducts] = useState([]);
+  const [username, setUsername] = useState("");
+  const navigate =useNavigate();
 
   useEffect(() => {
     fetchProducts();
+    const name = localStorage.getItem("username") || "Customer";
+    setUsername(name);
   }, []);
 
   const fetchProducts = async () => {
     try {
       const result = await customerService.getAllProducts();
-      setProducts(result.data); // backend returns array
+      setProducts(result.data);
     } catch (error) {
       console.error(error);
     }
   };
+  const placeOrder = (productId) => {
+
+    const customerId = localStorage.getItem("customerId");
+
+    const orderData = {
+      customerId,
+      items: [{ productId, qty: 1 }]
+    };
+
+    customerService
+      .placeOrder(orderData)
+      .then((res) => {
+        console.log("Order placed response:", res.data);
+
+        const orderId = res.data.orderId;
+
+        if (!orderId) {
+          alert("Order ID not received");
+          return;
+        }
+
+        // ✅ NAVIGATION WORKS
+        navigate(`/payments/${orderId}`);
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Order failed");
+      });
+  };
 
   return (
     
-    <div className="container mt-4">
-      <CustomerNavbar />
-      <h2>Welcome to Your Dashboard</h2>
-      <div className="row mt-3">
-        {products.map((product, index) => (
-          <div className="col-md-4 mb-4" key={index}>
-            <div className="card h-100 shadow-sm">
-              <img
-                src={`/images/${product.imageurl}`} // store images in public/images/
-                className="card-img-top"
-                alt={product.pname}
-                style={{ height: "200px", objectFit: "cover" }}
-              />
-              <div className="card-body">
-                <h5 className="card-title">{product.pname}</h5>
-                <p className="card-text">{product.pdescription}</p>
-                <p className="fw-bold">₹ {product.price}</p>
-                <p>Quantity: {product.qty}</p>
-                <button className="btn btn-success w-100" >Add to Cart</button>
-              </div>
+    <>
+  <CustomerNavbar />
+
+  <div>
+    <h2 className="mb-4">Welcome to KrishiMart</h2>
+
+    <div className="row">
+      {products.map((product) => (
+        <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={product.productId}>
+          <div className="card h-100 shadow-sm">
+            <img
+              src={
+                product.imageurl?.startsWith("http")
+                  ? product.imageurl
+                  : `/images/${product.imageurl}`
+              }
+              className="card-img-top"
+              style={{ height: "180px", objectFit: "cover" }}
+              alt={product.pname}
+            />
+
+            <div className="card-body d-flex flex-column">
+              <h5 className="card-title">{product.pname}</h5>
+              <p className="card-text">{product.pdescription}</p>
+              <p className="fw-bold">₹ {product.price}</p>
+              <p>Available: {product.qty}</p>
+
+              <button
+                className="btn btn-success mt-auto"
+                onClick={() => placeOrder(product.productId)}
+              >
+                Buy Now
+              </button>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
+  </div>
+</>
+
+    
   );
 }

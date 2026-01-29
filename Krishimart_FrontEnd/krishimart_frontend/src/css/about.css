@@ -1,0 +1,42 @@
+/* About Page Styling */
+
+.pd {
+  padding-top: 100px; /* navbar fixed hai isliye */
+  min-height: calc(100vh - 150px);
+}
+
+.pd h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pd h4 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.pd p {
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.pd img {
+  object-fit: cover;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .pd {
+    padding-top: 80px;
+  }
+
+  .pd h3 {
+    font-size: 26px;
+  }
+
+  .pd h4 {
+    font-size: 18px;
+  }
+}

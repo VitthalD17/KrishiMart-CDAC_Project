@@ -1,82 +1,120 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import farmerService from "../services/FarmerService"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import farmerService from "../services/FarmerService";
+import FarmerNavbar from "../components/FarmerNavbar";
+import "../css/addProducts.css";
+
 export default function AddProduct() {
-const navigate=useNavigate()
-const [formdetails,setformdetails]=useState({
-            pname:"",
-            price:"", 
-            qty:"",
-           pdescription:"", 
-            imageurl:""})
 
-const addNewProduct=(event) => {
-    event.preventDefault()
-    if(
-            formdetails.pname === ""||
-            formdetails.price === "" ||
-            formdetails.qty === "" ||
-            formdetails.pdescription === "" ||
-            formdetails.imageurl === ""
-    ){
-        alert("Plz fill all the fields")
-    }else{
-        farmerService.addNewProduct(formdetails)
-        .then((result)=>{
-            navigate("/farmer/dashboard")
-        }).catch((err)=>{
+  const navigate = useNavigate();
 
+  const [formdetails, setformdetails] = useState({
+    pname: "",
+    price: "",
+    qty: "",
+    pdescription: "",
+    imageurl: ""
+  });
+
+  const addNewProduct = (event) => {
+    event.preventDefault();
+
+    if (
+      formdetails.pname === "" ||
+      formdetails.price === "" ||
+      formdetails.qty === "" ||
+      formdetails.pdescription === "" ||
+      formdetails.imageurl === ""
+    ) {
+      alert("Plz fill all the fields");
+    } else {
+      farmerService.addNewProduct(formdetails)
+        .then(() => {
+          navigate("/farmer/dashboard");
         })
+        .catch(() => {});
     }
-}         
+  };
 
-const handlechange=(event)=>{
-    var {name,value}=event.target 
-    setformdetails({...formdetails,[name]:value})
-}
+  const handlechange = (event) => {
+    var { name, value } = event.target;
+    setformdetails({ ...formdetails, [name]: value });
+  };
+
   return (
+    <>
+      <FarmerNavbar />
 
-    <div>
-         <form name='myfrm' onSubmit={addNewProduct}>
-  <div className="form-group">
-    <label htmlFor="pname">Prod_Name</label>
-    <input type="text" className="form-control" id="pname" name='pname'
-    value={formdetails.pname}
-    onChange={handlechange}
-    /> 
-  </div>
-  <div className="form-group">
-    <label htmlFor="price">Price</label>
-    <input type="Number" className="form-control" id="price" name='price'
-     value={formdetails.price}
-    onChange={handlechange}
-    />
-  </div>
-   <div className="form-group">
-    <label htmlFor="qty">Qty</label>
-    <input type="number" className="form-control" id="qty" name='qty'
-     value={formdetails.qty}
-    onChange={handlechange}
-    />
-  </div>
-   <div className="form-group">
-    <label htmlFor="pdescription">Description</label>
-    <input type="text" className="form-control" id="pdescription" name='pdescription'
-     value={formdetails.pdescription}
-    onChange={handlechange}
-    />
-  </div>
-  <div className="form-group">
-    <label htmlFor="imageurl">Image</label>
-    <input type="text" className="form-control" id="imageurl" name='imageurl'
-     value={formdetails.imageurl}
-    onChange={handlechange}
-    />
-  </div>
-  
+      <div className="addproduct-container">
+        <div className="addproduct-card">
 
-  <button type="submit" className="btn btn-primary" name='add' id='add'>AddProduct</button>
-</form>
-    </div>
-  )
+          <h3 className="text-center mb-4">Add New Product</h3>
+
+          <form name="myfrm" onSubmit={addNewProduct}>
+
+            <div className="mb-3">
+              <label className="form-label">Product Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="pname"
+                value={formdetails.pname}
+                onChange={handlechange}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Price</label>
+              <input
+                type="number"
+                className="form-control"
+                name="price"
+                value={formdetails.price}
+                onChange={handlechange}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Quantity</label>
+              <input
+                type="number"
+                className="form-control"
+                name="qty"
+                value={formdetails.qty}
+                onChange={handlechange}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Description</label>
+              <input
+                type="text"
+                className="form-control"
+                name="pdescription"
+                value={formdetails.pdescription}
+                onChange={handlechange}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Image URL</label>
+              <input
+                type="text"
+                className="form-control"
+                name="imageurl"
+                value={formdetails.imageurl}
+                onChange={handlechange}
+              />
+            </div>
+
+            <button type="submit" className="btn btn-success w-100">
+              Add Product
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+    </>
+  );
 }

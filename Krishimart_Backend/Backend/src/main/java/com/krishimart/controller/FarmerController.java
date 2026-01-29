@@ -27,12 +27,7 @@ import lombok.AllArgsConstructor;
 public class FarmerController {
 
 	private final FarmerService farmerService;
-//	
-//	@PostMapping("/signup")
-//	public ResponseEntity<?> FarmerSignUp( @Valid @RequestBody UserDTO dto){
-//		
-//		return ResponseEntity.status(HttpStatus.CREATED).body(farmerService.FarmerSignUp(dto));
-//	}
+
 	
 	
 	@PostMapping("/products")
@@ -55,5 +50,11 @@ public class FarmerController {
 	public ResponseEntity<?> deleteMyProducts(@PathVariable Long productId){
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(farmerService.deleteMyProducts(productId));
+	}
+	
+	@GetMapping("/payments/{farmerId}")
+	public ResponseEntity<?> getMyPayments(@PathVariable Long farmerId){
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(farmerService.getMyPayments(farmerId));
 	}
 }
