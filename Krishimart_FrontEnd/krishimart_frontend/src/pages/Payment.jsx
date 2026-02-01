@@ -4,6 +4,7 @@ import paymentService from "../services/PaymentService";
 import customerService from "../services/CustomerService";
 import CustomerNavbar from "../components/CustomerNavbar";
 import "../css/payment.css";
+import { sendLog } from "../services/LoggerService";
 
 export default function Payment() {
 
@@ -33,19 +34,23 @@ export default function Payment() {
       await paymentService.createPayment(orderId, payMethod);
       const res = await paymentService.markPaymentPaid(orderId);
       alert(res.data.message || "Payment Successful");
+      
       navigate("/success",{
          state: {
     orderId: order.orderId,
     amount: order.total_amount,
     paymentMode: payMethod
   }
+  
       });
+      sendLog(`Payment SuccessFull OrderId: ${orderId} Payment Method:${payMethod}`)
     } catch (err) {
       console.error(err);
       alert(
         err.response?.data?.message ||
         "Payment failed"
       );
+      sendLog(`Payment Failed ${err}`)
     }
   };
 
@@ -99,7 +104,7 @@ export default function Payment() {
             </label>
           </div>
 
-          {/* UI ONLY */}
+       
           {payMethod === "CARD" && (
             <div className="payment-content">
               <input placeholder="Card Number" />

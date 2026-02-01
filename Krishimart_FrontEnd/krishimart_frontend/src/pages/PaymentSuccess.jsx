@@ -3,15 +3,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import CustomerNavbar from "../components/CustomerNavbar";
 import "../css/paymentSuccess.css";
 
+
 export default function PaymentSuccess() {
 
   const navigate = useNavigate();
   const { state } = useLocation();
 
-  // fallback (refresh ke case me)
+
   const orderId = state?.orderId || "N/A";
   const amount = state?.amount || 0;
   const paymentMode = state?.paymentMode || "Online";
+ 
 
   return (
     <>

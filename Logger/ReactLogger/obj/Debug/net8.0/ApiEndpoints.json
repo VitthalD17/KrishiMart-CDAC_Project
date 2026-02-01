@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "MVCDemo.Controllers.LoggerController",
+    "Method": "Log",
+    "RelativePath": "api/logger",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

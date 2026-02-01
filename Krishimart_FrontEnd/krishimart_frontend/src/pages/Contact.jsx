@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <>
     <Navbar/>
-      {/* ===== CONTACT SECTION ===== */}
+    
       <section className="py-3 py-md-5 py-xl-8 mt-5 p-5">
         <div className="container">
           <div className="row justify-content-md-center">
@@ -30,7 +30,7 @@ export default function Contact() {
                 <div className="card-body p-0">
                   <div className="row gy-3 gy-md-4 gy-lg-0">
 
-                    {/* LEFT SIDE */}
+                   
                     <div
                       className="col-12 col-lg-6 bsb-overlay background-position-center background-size-cover bgimg"
                     >
@@ -68,7 +68,7 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    {/* RIGHT SIDE FORM */}
+                   
                     <div className="col-12 col-lg-6">
                       <div className="row align-items-lg-center h-100">
                         <div className="col-12">
@@ -124,7 +124,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
       <div className="container-fluid bg-dark text-white footer">
         <div className="row">
           <div className="col-md-4 text-center">

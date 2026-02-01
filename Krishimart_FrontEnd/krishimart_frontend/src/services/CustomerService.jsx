@@ -4,7 +4,7 @@ const base_url = "http://localhost:8080/customers";
 
 class CustomerService {
   getAllProducts() {
-    const token = localStorage.getItem("token"); // fetch latest token
+    const token = localStorage.getItem("token"); 
     return axios.get(`${base_url}/products`, {
       headers: {
         Authorization: `Bearer ${token}`

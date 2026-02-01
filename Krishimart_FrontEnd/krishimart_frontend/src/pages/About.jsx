@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar"; // ya CommonNavbar
+import Navbar from "../components/Navbar"; 
 import "../css/about.css";
 import "../css/footer.css";
 import "../css/nav.css";
@@ -8,10 +8,10 @@ import "../css/index.css";
 const About = () => {
   return (
     <>
-      {/* Navbar */}
+     
       <Navbar />
 
-      {/* Main Content */}
+     
       <main className="pd m-2 mt-5">
         <div className="container">
           <div className="row mt-4">
@@ -45,7 +45,6 @@ const About = () => {
         </div>
       </main>
 
-      {/* Footer */}
       <div className="container-fluid bg-dark text-white footer mt-5">
         <div className="row p-3">
           <div className="info col-md-4 text-center">

@@ -62,7 +62,7 @@ export default function EditProduct() {
 
             <form onSubmit={updateProduct}>
 
-              {/* Product ID */}
+          
               <div className="mb-3">
                 <label className="form-label">Product ID</label>
                 <input
@@ -74,7 +74,7 @@ export default function EditProduct() {
                 />
               </div>
 
-              {/* Product Name */}
+           
               <div className="mb-3">
                 <label className="form-label">Product Name</label>
                 <input
@@ -87,7 +87,7 @@ export default function EditProduct() {
                 />
               </div>
 
-              {/* Price */}
+          
               <div className="mb-3">
                 <label className="form-label">Price (₹)</label>
                 <input
@@ -99,7 +99,7 @@ export default function EditProduct() {
                 />
               </div>
 
-              {/* Quantity */}
+            
               <div className="mb-3">
                 <label className="form-label">Quantity</label>
                 <input
@@ -111,7 +111,7 @@ export default function EditProduct() {
                 />
               </div>
 
-              {/* Description */}
+            
               <div className="mb-3">
                 <label className="form-label">Description</label>
                 <textarea
@@ -123,7 +123,7 @@ export default function EditProduct() {
                 ></textarea>
               </div>
 
-              {/* Image URL */}
+          
               <div className="mb-3">
                 <label className="form-label">Image URL</label>
                 <input
@@ -135,7 +135,6 @@ export default function EditProduct() {
                 />
               </div>
 
-              {/* Buttons */}
               <div className="d-flex justify-content-between">
                 <button type="submit" className="btn btn-success px-4">
                   Update

@@ -6,7 +6,6 @@ export default function FarmerPayments() {
 
   const [payments, setPayments] = useState([]);
 
-  // farmerId localStorage se
   const farmerId = localStorage.getItem("farmerId");
 
   useEffect(() => {

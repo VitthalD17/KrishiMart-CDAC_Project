@@ -24,7 +24,7 @@ export default function FarmerDashboard() {
     const deleteProduct = (productId) => {
         FarmerService.deleteProduct(productId)
             .then(() => {
-                loadMyProducts(); // refresh table
+                loadMyProducts(); e
             })
             .catch(err => console.log(err));
     };

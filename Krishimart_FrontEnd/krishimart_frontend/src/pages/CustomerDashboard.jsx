@@ -43,7 +43,7 @@ export default function CustomerDashboard() {
           return;
         }
 
-        // ✅ NAVIGATION WORKS
+       
         navigate(`/payments/${orderId}`);
       })
       .catch((err) => {

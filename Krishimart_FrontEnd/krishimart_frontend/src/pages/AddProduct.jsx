@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import farmerService from "../services/FarmerService";
 import FarmerNavbar from "../components/FarmerNavbar";
+import {sendLog} from "../services/LoggerService"
 import "../css/addProducts.css";
 
 export default function AddProduct() {
@@ -30,9 +31,12 @@ export default function AddProduct() {
     } else {
       farmerService.addNewProduct(formdetails)
         .then(() => {
+          sendLog("The Product Addded SuccessFully!!")
           navigate("/farmer/dashboard");
         })
-        .catch(() => {});
+        .catch(() => {
+          sendLog("The Product Not Addded!!")
+        });
     }
   };
 

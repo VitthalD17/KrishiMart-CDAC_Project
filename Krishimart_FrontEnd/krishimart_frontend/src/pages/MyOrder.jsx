@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import orderService from "../services/CustomerService";
 import CustomerNavbar from "../components/CustomerNavbar";
 import {Link} from 'react-router-dom'
+import {sendLog} from "../services/LoggerService"
 import "../css/MyOrder.css"
 export default function MyOrder() {
 
@@ -11,7 +12,7 @@ export default function MyOrder() {
         orderService.getOrdersByCustomerId()
             .then((res) => {
                 console.log("Orders response:", res.data);
-                setOrders(res.data);   // backend returns List<OrderRespDTO>
+                setOrders(res.data);   
             })
             .catch((err) => {
                 console.log(err);
@@ -19,7 +20,7 @@ export default function MyOrder() {
             });
     }, []);
 
-    // ✅ CANCEL ORDER METHOD
+   
     const cancelOrder = (orderId) => {
 
         if (!window.confirm("Are you sure you want to cancel this order?")) {
@@ -29,8 +30,8 @@ export default function MyOrder() {
         orderService.cancelMyOrder(orderId)
             .then((res) => {
                 alert(res.data.message || "Order cancelled successfully");
-
-                // update order status locally
+                sendLog(`Order Cancelled SuccessFully !! ${orderId}`)
+                
                 setOrders(prevOrders =>
                     prevOrders.map(order =>
                         order.orderId === orderId
@@ -45,6 +46,7 @@ export default function MyOrder() {
                     err.response?.data?.message ||
                     "Order cannot be cancelled"
                 );
+                sendLog(`Order Not Cancelled ${err}`)
             });
     };
 
