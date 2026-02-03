@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 	    Users userEntity = mapper.map(dto, Users.class);
 	   // userEntity.setRole(Role.FARMER);
 	    userEntity.setPassword(passwordEncoder.encode(dto.getPassword()));
-
+	    userEntity.setAccStatus(true);
 	    // 4. Save to DB
 	    userRepository.save(userEntity);
 	    return new ApiResp("SignUp Success", "Success");

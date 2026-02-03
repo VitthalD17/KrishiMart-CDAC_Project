@@ -1,3 +1,75 @@
 Logged at 01-02-2026 22:19:20 - Called /api/logger
 Logged at 01-02-2026 22:19:20 - [Frontend] User Login SuccessFull FARMER
 Logged at 01-02-2026 22:19:20 - Completed /api/logger
+Logged at 01-02-2026 23:21:00 - Called /api/logger
+Logged at 01-02-2026 23:21:00 - [Frontend] User Signup Failed!!! AxiosError: Network Error
+Logged at 01-02-2026 23:21:00 - Completed /api/logger
+Logged at 01-02-2026 23:23:09 - Called /api/logger
+Logged at 01-02-2026 23:23:09 - [Frontend] User Signup Failed!!! AxiosError: Network Error
+Logged at 01-02-2026 23:23:09 - Completed /api/logger
+Logged at 01-02-2026 23:23:36 - Called /api/logger
+Logged at 01-02-2026 23:23:36 - [Frontend] User Signup Failed!!! AxiosError: Network Error
+Logged at 01-02-2026 23:23:36 - Completed /api/logger
+Logged at 01-02-2026 23:27:23 - Called /api/logger
+Logged at 01-02-2026 23:27:23 - [Frontend] User Login Failed AxiosError: Network Error
+Logged at 01-02-2026 23:27:23 - Completed /api/logger
+Logged at 01-02-2026 23:28:45 - Called /api/logger
+Logged at 01-02-2026 23:28:45 - [Frontend] User Login Failed AxiosError: Network Error
+Logged at 01-02-2026 23:28:45 - Completed /api/logger
+Logged at 02-02-2026 12:13:46 - Called /api/logger
+Logged at 02-02-2026 12:13:46 - [Frontend] User Login Failed AxiosError: Request failed with status code 403
+Logged at 02-02-2026 12:13:46 - Completed /api/logger
+Logged at 02-02-2026 12:13:52 - Called /api/logger
+Logged at 02-02-2026 12:13:52 - [Frontend] User Login SuccessFull FARMER
+Logged at 02-02-2026 12:13:52 - Completed /api/logger
+Logged at 02-02-2026 12:16:57 - Called /api/logger
+Logged at 02-02-2026 12:16:57 - [Frontend] The Product Addded SuccessFully!!
+Logged at 02-02-2026 12:16:57 - Completed /api/logger
+Logged at 02-02-2026 12:17:50 - Called /api/logger
+Logged at 02-02-2026 12:17:50 - [Frontend] The Product Addded SuccessFully!!
+Logged at 02-02-2026 12:17:50 - Completed /api/logger
+Logged at 02-02-2026 12:19:19 - Called /api/logger
+Logged at 02-02-2026 12:19:19 - [Frontend] The Product Addded SuccessFully!!
+Logged at 02-02-2026 12:19:19 - Completed /api/logger
+Logged at 02-02-2026 12:20:09 - Called /api/logger
+Logged at 02-02-2026 12:20:09 - [Frontend] The Product Addded SuccessFully!!
+Logged at 02-02-2026 12:20:09 - Completed /api/logger
+Logged at 02-02-2026 12:21:00 - Called /api/logger
+Logged at 02-02-2026 12:21:00 - [Frontend] The Product Addded SuccessFully!!
+Logged at 02-02-2026 12:21:00 - Completed /api/logger
+Logged at 02-02-2026 12:21:17 - Called /api/logger
+Logged at 02-02-2026 12:21:17 - [Frontend] User Login SuccessFull FARMER
+Logged at 02-02-2026 12:21:17 - Completed /api/logger
+Logged at 02-02-2026 12:21:49 - Called /api/logger
+Logged at 02-02-2026 12:21:49 - [Frontend] The Product Addded SuccessFully!!
+Logged at 02-02-2026 12:21:49 - Completed /api/logger
+Logged at 02-02-2026 12:24:05 - Called /api/logger
+Logged at 02-02-2026 12:24:05 - [Frontend] The Product Addded SuccessFully!!
+Logged at 02-02-2026 12:24:05 - Completed /api/logger
+Logged at 02-02-2026 12:28:16 - Called /api/logger
+Logged at 02-02-2026 12:28:16 - [Frontend] The Product Addded SuccessFully!!
+Logged at 02-02-2026 12:28:16 - Completed /api/logger
+Logged at 02-02-2026 12:28:51 - Called /api/logger
+Logged at 02-02-2026 12:28:51 - [Frontend] User Login SuccessFull CUSTOMER
+Logged at 02-02-2026 12:28:51 - Completed /api/logger
+Logged at 02-02-2026 12:31:26 - Called /api/logger
+Logged at 02-02-2026 12:31:26 - [Frontend] User Login SuccessFull CUSTOMER
+Logged at 02-02-2026 12:31:26 - Completed /api/logger
+Logged at 02-02-2026 12:33:18 - Called /api/logger
+Logged at 02-02-2026 12:33:18 - [Frontend] Payment SuccessFull OrderId: 9 Payment Method:UPI
+Logged at 02-02-2026 12:33:18 - Completed /api/logger
+Logged at 02-02-2026 12:33:50 - Called /api/logger
+Logged at 02-02-2026 12:33:50 - [Frontend] User Login SuccessFull FARMER
+Logged at 02-02-2026 12:33:50 - Completed /api/logger
+Logged at 02-02-2026 12:56:12 - Called /api/logger
+Logged at 02-02-2026 12:56:12 - [Frontend] User Login Failed AxiosError: Network Error
+Logged at 02-02-2026 12:56:12 - Completed /api/logger
+Logged at 02-02-2026 12:57:35 - Called /api/logger
+Logged at 02-02-2026 12:57:35 - [Frontend] User Login SuccessFull CUSTOMER
+Logged at 02-02-2026 12:57:35 - Completed /api/logger
+Logged at 02-02-2026 13:07:09 - Called /api/logger
+Logged at 02-02-2026 13:07:09 - [Frontend] User Login SuccessFull FARMER
+Logged at 02-02-2026 13:07:09 - Completed /api/logger
+Logged at 02-02-2026 13:07:35 - Called /api/logger
+Logged at 02-02-2026 13:07:35 - [Frontend] User Login SuccessFull CUSTOMER
+Logged at 02-02-2026 13:07:35 - Completed /api/logger

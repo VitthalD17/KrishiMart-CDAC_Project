@@ -54,7 +54,7 @@ export default function MyOrder() {
         <>
             <CustomerNavbar />
 
-            <div className="myorder-page">
+            <div className="myorder-page container-fluid px-5 mt-4">
                 <h2 className="mb-3 text-black">My Orders</h2>
 
                 <table className="table table-striped table-bordered">

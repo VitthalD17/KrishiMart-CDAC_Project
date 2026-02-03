@@ -19,20 +19,14 @@ const FarmerNavbar = () => {
       <div className="nav-right-group">
         <ul className="custom-links-list">
           <li>
-            <Link className="custom-link-item" to="/farmer/dashboard">
+            <Link className="custom-link-item" to="/admin">
               Home
             </Link>
           </li>
 
           <li>
-            <Link className="custom-link-item" to="/form">
-              Add Product
-            </Link>
-          </li>
-
-          <li>
-            <Link className="custom-link-item" to="/payments">
-              MyPayments
+            <Link className="custom-link-item" to="/admin/payments">
+              Payments
             </Link>
           </li>
         </ul>

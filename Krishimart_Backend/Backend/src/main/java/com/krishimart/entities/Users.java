@@ -52,4 +52,9 @@ private String mobno;
 
 @Column(name = "address", length = 250, nullable = false)
 private String address;
+
+@Column(nullable = false)
+private Boolean accStatus=true;
+
+
 }

@@ -33,6 +33,8 @@ const Login = () => {
         localStorage.setItem("farmerId", data.userId);
         sendLog(`User Login SuccessFull ${data.role}`)
         navigate("/farmer/dashboard");
+      }else if(data.role==="ADMIN"){
+        navigate("/admin")
       }
       
       

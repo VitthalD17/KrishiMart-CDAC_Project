@@ -1,4 +1,4 @@
-// src/components/Footer.jsx
+
 const Footer = () => {
   return (
     <div className="container-fluid bg-dark text-white footer mt-5">

@@ -89,8 +89,9 @@ public class SecurityConfiguration {
                 		"/swagger-ui/**",
                           "/users/signup",
                         "/users/signin", "/users/pwd-encryption","/error").permitAll()
-                        .requestMatchers("/farmers/**").hasRole("FARMER")
-                        .requestMatchers("/customers/**").hasRole("CUSTOMER")
+                		.requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/farmers/**").hasAnyRole("FARMER","ADMIN")
+                        .requestMatchers("/customers/**").hasAnyRole("CUSTOMER","ADMIN")
                         .anyRequest().authenticated()
         ).addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 

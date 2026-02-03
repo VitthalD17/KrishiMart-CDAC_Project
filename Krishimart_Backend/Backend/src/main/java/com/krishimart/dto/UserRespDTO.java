@@ -18,26 +18,13 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 
-public class UserDTO {
+public class UserRespDTO {
 
-	@NotBlank(message = "Name is required")
+	private Long userId;
 	private String uname;
-
-	@NotBlank(message = "Email is required")
-	@Email(message = "Invalid email format")
 	private String email;
-
-	@NotBlank(message = "Password is required")
-	// @Pattern(regexp = "((?=.*\\\\d)(?=.*[a-z])(?=.*[#@$*]).{5,20})",message =
-	// "Blank or invalid password")
-	private String password;
-
-	@NotNull(message = "Role cannot be null")
 	private Role role;
-
-	@NotBlank(message = "Mobile number is required")
 	private String mobno;
-
-	@NotBlank(message = "Address is required")
 	private String address;
+	private Boolean accStatus;
 }

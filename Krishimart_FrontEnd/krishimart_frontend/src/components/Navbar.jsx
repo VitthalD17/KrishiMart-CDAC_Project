@@ -24,12 +24,7 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link text-dark" to="/about">About</Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link text-dark" to="/products">Product</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link text-dark" to="/sellers">Sellers</Link>
-            </li> */}
+            
             <li className="nav-item">
               <Link className="nav-link text-dark" to="/contact">Contact</Link>
             </li>

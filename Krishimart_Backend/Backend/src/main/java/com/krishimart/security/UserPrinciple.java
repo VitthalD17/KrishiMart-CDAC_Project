@@ -51,15 +51,17 @@ public class UserPrinciple implements UserDetails {
     private final String password;
     private final Collection<? extends GrantedAuthority> authorities;
     private final String userRole;
+    private final Boolean accStatus;
 
     public UserPrinciple(String userId, String email, String password,
                          Collection<? extends GrantedAuthority> authorities,
-                         String userRole) {
+                         String userRole,Boolean accStatus) {
         this.userId = userId;
         this.email = email;
         this.password = password != null ? password : "";
         this.authorities = authorities;
         this.userRole = userRole;
+        this.accStatus=accStatus;
     }
 
     @Override
@@ -77,6 +79,8 @@ public class UserPrinciple implements UserDetails {
         return email;
     }
 
+
+
     @Override
     public boolean isAccountNonExpired() { return true; }
 
@@ -87,5 +91,5 @@ public class UserPrinciple implements UserDetails {
     public boolean isCredentialsNonExpired() { return true; }
 
     @Override
-    public boolean isEnabled() { return true; }
+    public boolean isEnabled() { return Boolean.TRUE.equals(accStatus); }
 }

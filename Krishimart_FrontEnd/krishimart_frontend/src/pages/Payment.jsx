@@ -15,7 +15,7 @@ export default function Payment() {
   const [payMethod, setPayMethod] = useState("CARD");
   const [loading, setLoading] = useState(true);
 
-  // 🔹 Load order details
+  
   useEffect(() => {
     customerService.getOrderById(orderId)
       .then(res => {
@@ -28,7 +28,7 @@ export default function Payment() {
       });
   }, [orderId, navigate]);
 
-  // 🔹 Pay button
+
   const handlePayment = async () => {
     try {
       await paymentService.createPayment(orderId, payMethod);

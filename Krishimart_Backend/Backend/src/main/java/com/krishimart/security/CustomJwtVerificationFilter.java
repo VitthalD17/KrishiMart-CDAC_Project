@@ -83,6 +83,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.krishimart.customExcp.UserRelatedException;
 import com.krishimart.dto.ApiResp;
 
 import io.jsonwebtoken.Claims;
@@ -115,6 +116,10 @@ public class CustomJwtVerificationFilter extends OncePerRequestFilter {
                 String jwt = authHeader.substring(7);
 
                 Claims claims = jwtUtils.validateToken(jwt);
+                Boolean active=claims.get("accStatus",Boolean.class);
+                if(Boolean.FALSE.equals(active)){
+                	throw new UserRelatedException("The users Account is Deactivated");
+                }
                 String userId = claims.get("user_id", String.class);
                 String role = claims.get("user_role", String.class);
 
@@ -126,7 +131,8 @@ public class CustomJwtVerificationFilter extends OncePerRequestFilter {
                         claims.getSubject(),
                         "",
                         grantedAuthorities,
-                        role
+                        role,
+                        active
                 );
 
                 Authentication authentication =

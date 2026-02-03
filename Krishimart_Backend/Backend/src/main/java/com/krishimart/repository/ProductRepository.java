@@ -16,4 +16,6 @@ public interface ProductRepository extends JpaRepository<Products, Long> {
 	@Query("Select new com.krishimart.dto.ProdDTO(p.productId,p.pname,p.price,p.qty,p.pdescription,"
 			+ "p.imageurl) From Products p where p.farmer.userId=:farmerId")
 	List<ProdDTO> findByFarmerUserId(@Param("farmerId") Long farmerId);
+	
+	List<Products> findByFarmerAccStatusTrue();
 }

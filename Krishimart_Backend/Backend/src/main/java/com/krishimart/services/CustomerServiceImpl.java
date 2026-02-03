@@ -147,7 +147,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public List<Products> getAllProducts() {
-		List<Products> prod=productRepository.findAll();
+		
+		List<Products> prod=productRepository.findByFarmerAccStatusTrue();
 		if(prod.isEmpty()) {
 			throw new ProductException("There is no products");
 		}

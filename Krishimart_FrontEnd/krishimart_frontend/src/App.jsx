@@ -13,14 +13,19 @@ import PaymentSuccess from "./pages/PaymentSuccess";
 import FarmerPayments from "./pages/FarmerPayments";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminPayments from "./pages/AdminPayment";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<AdminDashboard/>}/>
+        <Route path="/admin/payments" element={<AdminPayments/>}/>
         <Route path="/dashboard" element={<CustomerDashboard />} />
         <Route path="/farmer/dashboard" element={<FarmerDashboard/>}/>
         <Route path="/edit/:productId" element={<EditProduct/>}/>

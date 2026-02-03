@@ -20,6 +20,7 @@ import com.krishimart.dto.AuthDTO;
 import com.krishimart.dto.AuthResp;
 import com.krishimart.dto.UserDTO;
 import com.krishimart.entities.Role;
+import com.krishimart.entities.Users;
 import com.krishimart.security.JwtUtils;
 import com.krishimart.security.UserPrinciple;
 import com.krishimart.services.UserService;
@@ -49,6 +50,7 @@ public class UserController {
 		log.info("---Before authenticated---",holder.isAuthenticated());
 		Authentication fullyAuth=authenticationMgr.authenticate(holder);
 		UserPrinciple userPrinciple=(UserPrinciple)fullyAuth.getPrincipal();
+		 
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(new AuthResp(jwtUtils.generateToken(userPrinciple),"SuccessFully Login",userPrinciple.getUserRole(),userPrinciple.getUserId()));
 		

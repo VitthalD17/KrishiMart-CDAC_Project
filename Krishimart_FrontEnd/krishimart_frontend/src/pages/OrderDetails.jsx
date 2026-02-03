@@ -5,14 +5,14 @@ import "../components/CustomerNavbar"
 import CustomerNavbar from '../components/CustomerNavbar';
 
 export default function OrderDetails() {
-  const { orderId } = useParams(); // get orderId from URL
-  const [order, setOrder] = useState({}); // single order
+  const { orderId } = useParams(); 
+  const [order, setOrder] = useState({});
 
   useEffect(() => {
     orderService.getOrderById(orderId)
       .then(res => {
         console.log(res.data);
-        setOrder(res.data); // backend returns OrderRespDTO
+        setOrder(res.data); 
       })
       .catch(err => {
         console.error(err);

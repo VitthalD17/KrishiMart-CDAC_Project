@@ -28,11 +28,7 @@ public class CustomerController {
 
 	final private CustomerService customerService;
 	
-//
-//@PostMapping("/signup")
-//public ResponseEntity<?> CustomerSignUp(@Valid @RequestBody UserDTO dto){
-//	return ResponseEntity.status(HttpStatus.CREATED).body(customerService.CustomerSignUp(dto));
-//}
+
 	
 	@PostMapping("/orders")
 	public ResponseEntity<?> placeMyOrders(@Valid @RequestBody OrderReqDTO dto){
