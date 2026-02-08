@@ -61,8 +61,6 @@ The application follows a decoupled and layered architecture for scalability and
 
 ### Backend (Spring Boot)
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/krishi-mart.git
 2.Update MySQL credentials in
   src/main/resources/application.properties:
 spring.datasource.url=jdbc:mysql://localhost:3306/krishimart
