@@ -3,7 +3,6 @@ import AdminNavbar from "../components/AdminNavbar";
 import AdminService from "../services/AdminService";
 
 export default function AdminPayments() {
-
   const [payments, setPayments] = useState([]);
 
   useEffect(() => {
@@ -12,11 +11,11 @@ export default function AdminPayments() {
 
   const loadPayments = () => {
     AdminService.getAllPayments()
-      .then(res => {
+      .then((res) => {
         console.log(res.data);
         setPayments(res.data);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -31,8 +30,7 @@ export default function AdminPayments() {
             <tr>
               <th>Payment ID</th>
               <th>Order ID</th>
-              <th>Farmer</th>
-              <th>Customer</th>
+              <th>Customer ID</th>
               <th>Amount (₹)</th>
               <th>Status</th>
               <th>Payment Date</th>
@@ -41,13 +39,16 @@ export default function AdminPayments() {
 
           <tbody>
             {payments.length > 0 ? (
-              payments.map(pay => (
+              payments.map((pay) => (
                 <tr key={pay.paymentId}>
                   <td>{pay.paymentId}</td>
                   <td>{pay.order?.orderId}</td>
-                  <td>{pay.order?.farmer?.userName}</td>
-                  <td>{pay.order?.customer?.userName}</td>
+
+                  {/* Customer ID only */}
+                  <td>{pay.order?.customer?.userId}</td>
+
                   <td>{pay.amount}</td>
+
                   <td>
                     <span
                       className={`badge ${
@@ -59,14 +60,17 @@ export default function AdminPayments() {
                       {pay.pay_status}
                     </span>
                   </td>
+
                   <td>
-                    {new Date(pay.payment_date).toLocaleString()}
+                    {pay.payment_date
+                      ? new Date(pay.payment_date).toLocaleString()
+                      : "-"}
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="7" className="text-center">
+                <td colSpan="6" className="text-center">
                   No payments found
                 </td>
               </tr>
